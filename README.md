@@ -1,45 +1,50 @@
-# What is this about?
+# ECMAScript 6 Overview in simple terms
 Here is **ECMAScript 6 Overview in simple terms**.  
-And let me mention this overview is heavily influenced by [es6features repo](https://github.com/lukehoban/es6features#readme). Thanks to [Luke Hoban](https://twitter.com/lukehoban) for such a great work.  
+And let me mention this overview is heavily influenced by [es6features repo](https://github.com/lukehoban/es6features#readme). Thanks to [Luke Hoban](https://twitter.com/lukehoban) for such a great work.
+
 At first when I myself heard about ES6, I had a hard time to digest it and learn about its fundamentals. I have gone through that path, but you don't have to!  
 So I here is a brief introduction to ES6 and its new features, all explained in simple terms for dummies like me :smile:
 
 
 
 
-# ECMAScript 6 Introduction
+# Introduction
 ECMAScript 6, also known as ECMAScript 2015 is the next version of Javascript and became a standard in June 2015.  
 ES6 is a significant update to the language since ES5 back in 2009.
 
-### Is it a brand new language?
+**Is it a brand new language?**  
 Nope! It's the same old Javascript as we know but with a more beautiful syntax and more features.
 
-### Does it mean my current Javascript codes are not going to work soon?
+**Does it mean my current Javascript codes are not going to work soon?**  
 Nope! That would break the web! Javascript always be backwards-compatible. i.e new features will be added to it and its existing features will become more powerful. This is called [One JavaScript](http://exploringjs.com/es6/ch_one-javascript.html#ch_one-jacvascript).
 
-### What is its goal?
+**What is its goal?**  
 Generally be a better language! It lets us code faster, safer and more efficient.
 
-### What is after ES6?
+**What is after ES6?**  
 ECMAScript 7 is on its way... TC39 has plans to release a new version of ECMAScript every year. i.e from now on, ECMAScript versions will be relatively small upgrades. So everything you learn about ES6 today will be useful when you wanna start learning ES7 and later versions.
 
 
 
 
 # Installation
-This section is for those web designers who are not still so familiar with the command line tools. So if you already know how to install node.js and [Babeljs](https://babeljs.io/), the ES6 compiler, you can skip this section.
+This section is for those web designers who are not still so familiar with the command line tools. So if you already know how to install [node.js](https://nodejs.org/en/) and [Babeljs](https://babeljs.io/), the ES6 compiler, you can skip this section.
+
+**Do I need to install something?**  
+Yes! As ES6 is new, most of its features are not supported in browsers just yet. But there's no need to wait! We can start coding in ES6 today with the help of [node.js](https://nodejs.org/en/) and [Babeljs](https://babeljs.io/), the ES6 compiler!  
+[Babeljs](https://babeljs.io/) will transform our ES6 syntax into ES5, so that the current browsers can read our code as if we've written it all in ES5 from the beginning. Isn't that cool? Yes it is! So let's just see how to install all of this and get started.
 
 1. First download and install [node.js](https://nodejs.org/en/) on your machine.
 
-2. Open your Terminal / Command Prompt and type: `npm install --global babel`.  
-Now hit Enter on your keyboard to run the command and install [Babeljs](https://babeljs.io/) the very first time on your machine.  
+2. Now open your Terminal / Command Prompt and type: `npm install --global babel`.  
+Hit Enter on your keyboard to run the command and install [Babeljs](https://babeljs.io/) the very first time on your machine.  
 **Babeljs** is the ES6 compiler.
 
 3. Run: `npm install -g browserify`.  
 To install [Browserify](http://browserify.org/) too if you like to use ES6 module loader syntax.  
 **Browserify** lets you write modular JavaScript codes in separate Javascript files and then bundle them all up and feed your html page with only one bundled Javascript file.
 
-4. Run: `cd path/to/my/project` to change directory to you project directory.
+4. Run: `cd path/to/my/project` to change directory to your project directory.
 
 4. Run: `babel src --out-dir build`. This command transforms any .js files in 'src' folder from ES6 to ES5 syntax and puts the new transformed files into 'build' folder.  
 Now you're good to go! You can feed you html with the new transformed .js files and the browser should run your codes just fine as always :thumbsup:
@@ -62,6 +67,9 @@ Now you're good to go! You can feed you html with the new transformed .js files 
 - [Map + Set + WeakMap + WeakSet](#map--set--weakmap--weakset)
 - [Promises](#promises)
 
+
+
+
 ## string + array + object APIs
 In ES6 we have many new library additions, including core Math libraries, Array conversion helpers and `Object.assign()` for copying.
 
@@ -83,11 +91,13 @@ Object.assign(Point, { origin: new Point(0,0) }); // Assigns new parameters for 
 ```
 
 
+
+
 ## Symbols
 Symbol is a new primitive type in ECMAScript 6. They are tokens that serve as unique IDs. You create symbols via the factory function `Symbol()`.
 They are always unique. Each time we create a new symbol, we're actually creating a new unique identifier which never clashes with anything else in our project. So that's why it makes them useful in some cases. For example when we wanna define a constant!
 
-In ES5 we used to use two different unique Strings to define constants... We should have rely on a String! But as we know String is not something unique! We may accidentally change them or type them in different places and that will break our constant behavior. But now, we can easily use `Symbol()` when defining our constant variables and we're sure that each time we call `Symbol()` it's an unique identifier in our project that never clashes. Cool!
+In ES5 we used to use two different unique Strings to define constants... We should have to rely on a String! But as we know String is not something unique! We may accidentally change them or type them in different places and that will break our constant behavior. But now, we can easily use `Symbol()` when defining our constant variables and we're sure that each time we call `Symbol()` it's an unique identifier in our project that never clashes. Cool!
 
 ```javascript
 const COLOR_RED    = Symbol();
@@ -102,6 +112,8 @@ let obj0 = {};
 obj0[MY_KEY] = 123;
 console.log('my dynamic object method: ', obj0[MY_KEY]); // 123
 ```
+
+
 
 
 ## Template Strings
@@ -133,6 +145,8 @@ Escapes are not interpreted,
 ```
 
 
+
+
 ## Let + Const
 ES6 provides two new ways to declare variables: `let` and `const`, which mostly replace the ES5 way of declaring variables, `var`.
 `let` works similarly to `var`, but the variable it declares is block-scoped, it only exists within the current block. `var` is function-scoped.
@@ -151,16 +165,21 @@ function func(randomize) {
 
   return y;
 }
+```
 
-// const works like let, but the variable you declare must be immediately
-// initialized, with a value that can’t be changed afterwards.
+`const` works like `let`, but the variable you declare must be immediately initialized, with a value that cannot be changed afterwards.
+
+```javascript
 const a = 123;
+```
 
-// NOTE: const pitfall! const only means that the variable itself is immutable,
-// so if the variable is an object, the properties of that object are still
-// mutable... So the solution to that is the Javascript freeze() method.
+**NOTE:** `const` pitfall! `const` only means that the variable itself is immutable. So if the variable is an object, the properties of that object are still mutable! So the solution to that is the Javascript `freeze()` method.
+
+```javascript
 const freezObj = Object.freeze({});
 ```
+
+
 
 
 ## Destructuring
@@ -168,7 +187,7 @@ Destructuring allows binding using pattern matching, with support for matching a
 Destructuring is actually a convenient way to extract values from data stored in (possibly nested) objects and Arrays.
 
 ```javascript
-// NOTE: Let's understand destructuring better...
+// Let's understand destructuring better...
 let obj1 = {}; obj1.first = 'Jane'; obj1.last = 'Doe'; // This is how we can construct data
 let f1 = obj1.first; let l1 = obj1.last; // And this is how we can extract data out of it. right?
 
@@ -182,50 +201,42 @@ let { first: f2, last: l2 } = obj2; // Now we have f2 and l2 variables available
 // Destructing works with arrays too
 let [x1, y1] = ['a', 'b']; // x1 = 'a'; y1 = 'b'
 
-// We can also use a pattern for our destruct.
-// NOTE: It's important to mention that when we destruct, we just need to
-// mention the variable that we like to extract out of the array or object.
-// That's it! e.g. here we just liked to extract 'foo' from 'obj3' and save it
-// as 'f3' variable. So we just create the pattern to access 'foo' in the
-// object and mention only that, because that's all what we need.
+// Computed property keys
+const FOO = 'foo';
+let { [FOO]: f4 } = { foo: 123 }; // f4 = 123
+```
+
+We can also use a pattern for our destruct.  
+**NOTE:** It's important to mention that when we destruct, we just need to mention the variable that we like to extract out of the array or object. That's it! e.g. In the following example we just like to extract 'foo' from 'obj3' and save it as 'f3' variable. So we just create the pattern to access 'foo' in the object and mention only that, because that's all that we need.
+
+```javascript
 let obj3 = { a: [{ foo: 123, bar: 'abc' }, {}], b: true };
 let { a: [{foo: f3}] } = obj3; // f3 = 123
+```
 
-// Array patterns work with iterables
-let [x2,...y2] = 'abc'; // x2='a'; y2=['b', 'c']; 'rest' operator
-let [,,x] = ['a', 'b', 'c', 'd']; // x = 'c'; We can also use 'Elision' to skip elements
+We can also have default values:
 
-
-
-
-// We can also have default values for our destruct
+```javascript
 let [x3 = 3, y3] = []; // x3 = 3; y3 = undefined
 let {foo: x4 = 3, bar: y4} = {}; // x4 = 3; y4 = undefined
 
 // Of course default values can be functions too:
-function log(x) { return 'YES' }
-let [aa=log('hello')] = [];
+function log() { return 'YES' }
+let [aa=log()] = [];
 
 // Default values can refer to other variables in the pattern.
-// NOTE: However order of them matters! The following produces referenceError:
+// However order of them matters! The following produces referenceError:
 // let [x=y, y=3] = [];
 // Why? because y is not defined yet when x says that my default value is y!
 let [xx=3, yy=xx] = [];
+```
 
-// Computed property keys
-const FOO = 'foo';
-let { [FOO]: f4 } = { foo: 123 }; // f4 = 123
+It can also be used in for-of.  
+**NOTE:** In ES6 we have a new kind of loop which is called for-of. Before ES5, when we liked to loop through an array we simply used for, in ES5 array had a method called `forEach()` which lets us to do that. Now we have for-of which is easier to use.
 
-
-
-
-// It can also be used in for-of
-// NOTE: In ES6 we have a new kind of loop which is called for-of
-// before ES5, when we liked to loop through an array we simply used for, in
-// ES5 array had a method called forEach() which lets us to do that. Now we
-// have for-of which is easier to use.
+```javascript
+// a for-of example and a loop through the array
 let arr = ['a', 'b', 'c'];
-
 for ( let item of arr ) {
   //console.log(item);
 }
@@ -241,11 +252,14 @@ for ( {name: n, age: a} of arr ) {
   // do something
 }
 
+// Array patterns work with iterables
+let [x2,...y2] = 'abc'; // x2='a'; y2=['b', 'c']; 'rest' operator
+let [,,x] = ['a', 'b', 'c', 'd']; // x = 'c'; We can also use 'Elision' to skip elements
+```
 
+Alright, so in what other situations destructuring is useful?
 
-
-// So when destructuring is useful at all?
-
+```javascript
 // To split an Array
 let [first1, ...rest1] = ['a', 'b', 'c'];
 
@@ -256,7 +270,11 @@ function testing() {
 ```
 
 
+
+
 ## Default + Rest + Spread
+ES6 provides a new and better way of defining default values for parameters in our functions:
+
 ```javascript
 // In ES5, you specify default values for parameters like this:
 function foo(x, y) {
@@ -267,7 +285,7 @@ function foo(x, y) {
 
 // ES6 has nicer syntax:
 function foo(x=0, y=0) {
-  // NOTE: y is 0 if not passed (or passed as undefined)
+  // y is 0 if not passed (or passed as undefined)
 }
 
 // In ES6, you can use destructuring in parameter definitions and the code
@@ -285,33 +303,35 @@ function selectEntries2(options) {
 
   // do something
 }
+```
 
+ES6 also lets us have rest parameters:
 
-
-
-// In ES6 we can rest parameters
+```javascript
 function format(pattern, ...params) {
   return params;
 }
 
 format('a', 'b', 'c'); // ['b', 'c'] // params will be an array
 
-// In ES6 we have '...' which is spread operator
 
-// in ES5, this is how we used to turn an array into parameters. We used apply()
+// In ES6 we have '...' which is the spread operator.
+// In ES5, this is how we used to turn an array into parameters: We used apply()
 Math.max.apply(null, [-1, 5, 11, 3]);
 
-// now we can simply do this! As spread operator will extract its items and
+// Now we can simply do this! As spread operator will extract its items and
 // turns them into parameters
 Math.max(...[-1, 5, 11, 3]);
 ```
 
 
+
+
 ## Arrows and Lexical this
 Arrows are a function shorthand using the `=>` syntax. But unlike functions, arrows share the same lexical this as their surrounding code.
 
+Expression bodies:
 ```javascript
-// Expression bodies
 var evens = [0,2,4];
 
 // These two are equivalent:
@@ -321,19 +341,22 @@ var odds = evens.map(function(v){ return v + 1; });
 // These two are equivalent:
 var nums = evens.map((v, i) => v + i);
 var nums = evens.map(function(v, i){ return v + i; });
+```
 
+Statement bodies:
 
-
-
-// Statement bodies
+```javascript
 var fives = [];
 nums.forEach(v => {
   // See? for more complex statement we can put everything inside {} just like
-  // what how we do it with normal functions.
+  // how we do it with normal functions.
   if (v % 5 === 0) fives.push(v);
 });
+```
 
-// Lexical this
+Lexical this:
+
+```javascript
 var bob = {
   _name: 'Bob',
   _friends: [],
@@ -349,7 +372,7 @@ class UiComponent {
   constructor() {
     let button = document.getElementById('myButton');
     button.addEventListener('click', () => {
-      // NOTE: By using arrow functions, 'this' keyword simply refers to our
+      // By using arrow functions, 'this' keyword simply refers to our
       // own 'UiComponent' class not the closure. This is awesome in ES6.
       // We no more need to use bind() in such cases...
       this.handleClick();
@@ -363,6 +386,8 @@ class UiComponent {
 ```
 
 
+
+
 ## Classes
 ES2015 classes are a simple sugar over the prototype-based OO pattern.
 
@@ -371,7 +396,7 @@ class Person {
   // constructor will be called automatically when the class is initialized.
   constructor(fname, lname) {
     // A class body can only contain methods, but not data properties.
-    // So that's why we should set our properties here.
+    // So that's why we should set our properties here in the constructor.
     this.fname = fname;
     this.lname = lname;
   }
@@ -380,7 +405,7 @@ class Person {
 
 class Employee extends Person {
   constructor(fname, lname, name = 'no name') {
-    // NOTE: In a derived class(extended class), you must call super() before
+    // In a derived class(extended class), you must call super() before
     // you can use 'this' keyword to define a property. e.g. this.name. Also
     // if we don't use super() we get ReferenceError when we're trying to
     // initialize the sub class.
@@ -427,6 +452,8 @@ console.log('Class-> John: ', john);
 ```
 
 
+
+
 ## Enhanced Object Literals
 Object literals are extended to support setting the prototype at construction, shorthand for `foo: foo` assignments, defining methods and making super calls.
 
@@ -460,11 +487,11 @@ let obj = {
 
   // Setters & Getters
   get sth() {
-    console.log('Object Literal-> ', 'GET foo');
+    console.log('Object Literal-> ', 'sth getter');
     return 123;
   },
   set sth(value) {
-    console.log('Object Literal-> ', 'SET bar to ' + value);
+    console.log('Object Literal-> ', 'sth setter');
     // Return value is ignored
   }
 };
@@ -472,23 +499,25 @@ let obj = {
 // New methods in Object
 // The most important new method of Object is assign().
 Object.assign(obj, { bar: true }); // it assigns new parameters for our object.
-console.log('Object Literal-> ', JSON.stringify(obj)); // {"first":"Jane","last":"Doe","foo":true,"bar":true}
+console.log('Object Literal-> ', JSON.stringify(obj)); // {"first":"Jane","last":"Doe","foo":true,"bar":true,"sth":123}
 ```
 
 
+
+
 ## Iterators + for..of
-ECMAScript 6 introduces a new interface for iteration, Iterable. (Iterable actually means anything that can be repeated)
+ECMAScript 6 introduces a new interface for iteration, iterable. (Iterable actually means anything that can be repeated)
 Arrays, Strings, Maps, Sets, DOM data structures (work in progress) are all iterable.
 
-NOTE: So in simple terms, iterator is a structure, that each time it is called, it will return the next results in a sequence. e.g. `entries()` method of an array. `arr.entries()` each time we call it, it returns the next item in an array.
-NOTE: Some iterable structures are not something new, such as a for loop... But here I just wanna explain what iteration protocol is, make it more clear and also introduce the new ES6 features about it :smile:
+So in simple terms, iterator is a structure, that each time it is called, it will return the next results in a sequence. e.g. `entries()` method of an array. `arr.entries()` each time we call it, it returns the next item in an array.
+
+**NOTE:** Some iterable structures are not something new, such as a for loop... But here I just wanna explain what iteration protocol is, make it more clear and also introduce the new ES6 features about it :smile:
+
+Language constructs that access data via the iteration protocol:
 
 ```javascript
-// Language constructs that access data via the iteration protocol:
-
-// This is an iteration. Because destructuring actually is doing an iterable
-// job(a repeated job, multiple job) to extract data out of the array.
-// It's not obviously a single job... It should repeated a job on a specific
+// Destructuring actually is doing an iterable job(a repeated job, multiple job)
+// to extract data out of the array. It should be repeated a job on a specific
 // pattern to accomplish this.
 let [a,b] = new Set(['a', 'b', 'c']);
 
@@ -507,11 +536,11 @@ let set0 = new Set(['a', 'b', 'c']); // Constructors of Sets
 // yield* an Iterable
 // NOTE: 'yield' is related to Generators when we wanna create a nGenerator
 // (Generator is a new feature in ES6)
+```
 
+Let's use iteration:
 
-
-
-// Let's use iteration
+```javascript
 let arr4 = ['a', 'b'];
 let iter = arr4[Symbol.iterator](); // we create an iterator via the method whose key is Symbol.iterator
 
@@ -522,16 +551,14 @@ iter.next(); // { value: 'b', done: false }
 iter.next(); // { value: undefined, done: true }
 // NOTE: The boolean property 'done' indicates when the end of the sequence of
 // items has been reached.
+```
 
-// See? It's somehow like how a loop works... It each time returns something new.
-// NOTE: A key characteristic of iteration protocol is that it is sequential:
-// the iterator returns values one at a time. That means that if an iterable
-// data structure is non-linear (such as a tree), iteration will linearize it.
+See? It's somehow like how a loop works... It each time returns something new.  
+**NOTE:** A key characteristic of iteration protocol is that it is sequential: The iterator returns values one at a time. That means that if an iterable data structure is non-linear (such as a tree), iteration will linearize it.
 
+Now let's use Symbols in an Object that we like it to act like an iterator:
 
-
-
-// Now use Symbols in an Object that we like it to act like an iterator.
+```javascript
 let iterableObject = {
   // Our object must have a dynamic method which is actually using Symbol
   // primitive. As we know Symbols are always unique and that's one of their
@@ -562,19 +589,14 @@ for (let x of iterableObject) {
   // second time it's 'world'.
   console.log('iterableObject-> ', x);
 }
-
-// NOTE: As we know have used a symbol as the key of the method in our object.
-// This unique marker makes the object iterable and enables us to use the
-// for-of loop. Cool! Now we have created a custom iterable object(or class) in
-// our code that this enables us to make iterable codes easier in our projects.
-
-// If the above iterable object was a real sample, it could be really helpful
-// in a project. There was no need for me to put all of my logic in the for-of
-// loop to do a iterable job, I could easily create a meaningful iterable class
-// and inside of that put my logic, then I could use my class in a for-of loop
-// in different places and easily do my iterable job. Easy! This would make my
-// code cleaner and dry.
 ```
+
+**NOTE:** As we know have used a symbol as the key of the method in our object. This unique marker makes the object iterable and enables us to use the for-of loop. Cool! Now we have created a custom iterable object(or class) in our code that this enables us to make iterable codes easier in our projects.
+
+If the above iterable object was a real sample, it could be really helpful in a project. There was no need for me to put all of my logic in the for-of loop to do a iterable job, I could easily create a meaningful iterable class and inside of that put my logic, then I could use my class in a for-of loop in different places and easily do my iterable job. Easy! This would make my code cleaner and dry.
+
+
+
 
 ## Modules
 Language-level support for modules for component definition. Codifies patterns from popular JavaScript module loaders (AMD, CommonJS).
@@ -586,15 +608,11 @@ In ECMAScript 6, modules are stored in files. There is exactly one module per fi
 export function sum(x, y) { return x + y; }
 export var pi = 3.141593;
 
-
-
-
 // app.js
 // Import anything that we like in an other file.
 import * as math from "lib/math";
 
 // Now we can access all the things that we've exported in math.js like this:
-// math.myFunction();
 alert("2π = " + math.sum(math.pi, math.pi));
 
 // otherApp.js
@@ -602,17 +620,14 @@ alert("2π = " + math.sum(math.pi, math.pi));
 // 'as' one general name.
 import {sum, pi} from "lib/math";
 alert("2π = " + sum(pi, pi));
+```
 
+There can also be a **single default export**. Modules that only export single values are very popular in the Node.js community. We can simply have a module that export only one class or function.
 
-
-
-// There can also be a single default export. Modules that only export single
-// values are very popular in the Node.js community. We can simply have a
-// module that export only one class or function.
-
+```javascript
 // myFunc.js
 // Of course our function can have a name too: export default function foo() {}
-export default function () { }
+export default function() { }
 import myFunc from 'myFunc';
 myFunc();
 
@@ -621,14 +636,14 @@ myFunc();
 export default class { }
 import MyClass from 'MyClass';
 let inst = new MyClass();
+```
 
+As we know in ECMAScript 5 code that doesn’t use modules via libraries (such as RequireJS, browserify or webpack), the revealing module pattern is popular, and based on an IIFE. Its advantage is that it clearly separates between what is public and what is private.
 
+```javascript
+// How to create properly a module in ES5:
+// my_module.js
 
-
-// As we know in ECMAScript 5 code that doesn’t use modules via libraries
-// (such as RequireJS, browserify or webpack), the revealing module pattern
-// is popular, and based on an IIFE. Its advantage is that it clearly separates
-// between what is public and what is private.
 var my_module = (function () {
   // Module-private variable:
   var countInvocations = 0;
@@ -645,11 +660,14 @@ var my_module = (function () {
 
 // This module pattern produces a global variable and is used as follows
 my_module.myFunc(33);
+```
 
-// In ECMAScript 6, modules are built in, which is why the barrier to adopting
-// them is low:
+In ECMAScript 6, modules are built in, which is why the barrier to adopting them is low:
 
+```javascript
+// How to create properly a module in ES6:
 // my_module.js
+
 // Module-private variable:
 let countInvocations = 0;
 
@@ -660,15 +678,15 @@ export function myFunc(x) {
 ```
 
 
+
+
 ## Map + Set + WeakMap + WeakSet
 Efficient data structures for common algorithms.
 The following four data structures are new in ECMAScript 6: Map, WeakMap, Set and WeakSet.
 
-```javascript
-// Maps! What was missing in ES5 was a data structure for mapping values to
-// values. The Map data structure in ECMAScript 6 lets you use arbitrary values
-// as keys and is highly welcome.
+**Maps**: What was missing in ES5 was a data structure for mapping values to values. The Map data structure in ECMAScript 6 lets you use arbitrary values as keys and is highly welcome.
 
+```javascript
 // Create an empty Map
 let map = new Map();
 
@@ -679,8 +697,8 @@ let map = new Map([ [ 1, 'one' ], [ 2, 'two' ] ]);
 let map = new Map().set(1, 'one').set(2, 'two');
 
 // Any value can be a key, even an object!
-// NOTE: We can also set an OR operator if what we're going to get was
-// undefined for some reasons: map.get(KEY) || 0;
+// We can also set an OR operator if what we're going to get was undefined for
+// some reasons: map.get(KEY) || 0;
 const KEY = {};
 map.set(KEY, 123);
 map.get(KEY); // 123
@@ -697,34 +715,21 @@ map.keys();
 map.values();
 
 // entries() returns the entries of the Map as an iterable over [key,value]
-// pairs (Arrays). **FYI: We can use destructuring in a for-of loop to access
-// both, keys and values, just like what we can do with the entries() method of
-// an array.
+// pairs (Arrays).
+// NOTE: We can use destructuring in a for-of loop to access both, keys and
+// values, just like what we can do with the entries() method of an array.
 map.entries();
+```
 
+**WeakMap**: It's a Map that doesn’t prevent its keys from being garbage-collected. That means that you can associate data with objects without having to worry about memory leaks. A WeakMap is a data structure whose keys must be objects and whose values can be arbitrary values. It has the same API as Map, with one significant difference: you can’t iterate over the contents – neither the keys, nor the values, nor the entries. You can’t clear a WeakMap, either.
 
+**Sets**: ECMAScript 5 doesn’t have a Set data structure, either. There are two possible work-arounds:
+1. Use the keys of an object to store the elements of a set of strings.
+2. Store (arbitrary) set elements in an Array: Check whether it contains an element via `indexOf()`, remove elements via `filter()`, etc. This is not a very fast solution, but it’s easy to implement. One issue to be aware of is that `indexOf()` can’t find the value NaN.
 
+ECMAScript 6 has the data structure Set which works for arbitrary values, is fast and handles NaN correctly.
 
-// WeakMap! It's a Map that doesn’t prevent its keys from being
-// garbage-collected. That means that you can associate data with objects
-// without having to worry about memory leaks.
-// A WeakMap is a data structure whose keys must be objects and whose values
-// can be arbitrary values. It has the same API as Map, with one significant
-// difference: you can’t iterate over the contents – neither the keys, nor the
-// values, nor the entries. You can’t clear a WeakMap, either.
-
-
-
-
-// Sets! ECMAScript 5 doesn’t have a Set data structure, either. There are two
-// possible work-arounds: 1.Use the keys of an object to store the elements of
-// a set of strings. 2.Store (arbitrary) set elements in an Array: Check
-// whether it contains an element via indexOf(), remove elements via filter(),
-// etc. This is not a very fast solution, but it’s easy to implement. One issue
-// to be aware of is that indexOf() can’t find the value NaN.
-// ECMAScript 6 has the data structure Set which works for arbitrary values, is
-// fast and handles NaN correctly.
-
+```javascript
 let set = new Set();
 
 // We can also fill out the set right at the moment that we're initializing it.
@@ -738,17 +743,13 @@ set.has('red'); // true
 set.delete('red'); // true
 set.size; // 1
 set.clear(); // To empty the set
-
-
-
-
-// WeakSet! It's a Set that doesn’t prevent its elements from being garbage-collected.
-
-// NOTE: Why do Maps and Sets have the property 'size' and not
-// 'length'(like Arrays)? The reason for this difference is that length is for
-// sequences, data structures that are indexable – like Arrays. size is for
-// collections that are primarily unordered – like Maps and Sets.
 ```
+
+**WeakSet**: It's a Set that doesn’t prevent its elements from being garbage-collected.
+
+**NOTE:** Why do Maps and Sets have the property 'size' and not 'length'(like Arrays)? The reason for this difference is that length is for sequences, data structures that are indexable – like Arrays. size is for collections that are primarily unordered – like Maps and Sets.
+
+
 
 
 ## Promises
@@ -824,9 +825,6 @@ asyncFunc1()
   // do something else...
 });
 ```
-
-
-
 
 
 
