@@ -842,3 +842,5 @@ This tutorial series has nothing to do with ES6 directly! But it's a great start
 * [Javascript Style Guide](Airbnb JavaScript Style Guide) teaches a mostly reasonable approach to JavaScript.
 
 * [Exploring ES6 Book](http://exploringjs.com/es6/) is a comprehensive book about ES6 written by [Axel Rauschmayer](https://twitter.com/rauschma).
+
+* [List of more resources](https://github.com/ericdouglas/ES6-Learning) is here to get you started even faster.
