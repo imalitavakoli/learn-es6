@@ -55,7 +55,7 @@ Now you're good to go! You can feed you html with the new transformed .js files 
 # ECMAScript 6 Features
 - [string + array + object APIs](#string--array--object-apis)
 - [Symbols](#symbols)
-- [Template Strings](#template-strings)
+- [Template Literals](#template-literals)
 - [Let + Const](#let--const)
 - [Destructuring](#destructuring)
 - [Default + Rest + Spread](#default--rest--spread)
@@ -116,8 +116,8 @@ console.log('my dynamic object method: ', obj0[MY_KEY]); // 123
 
 
 
-## Template Strings
-Template strings provide syntactic sugar for constructing strings.
+## Template literals
+Template literals provide syntactic sugar for constructing strings.
 The literal itself is delimited by backticks, the interpolated expressions inside the literal are delimited by `${var}`. Template literals always produce strings.
 
 ```javascript
