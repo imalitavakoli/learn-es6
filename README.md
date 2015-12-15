@@ -1,6 +1,6 @@
 # ECMAScript 6 Overview in simple terms
 Here is **ECMAScript 6 Overview in simple terms**.  
-And let me mention this overview is heavily influenced by [es6features repo](https://github.com/lukehoban/es6features#readme). Thanks to [Luke Hoban](https://twitter.com/lukehoban) for such a great work.
+And let me mention this overview is heavily influenced by [es6features repo](https://github.com/lukehoban/es6features#readme), thanks to [Luke Hoban](https://twitter.com/lukehoban) for such a great work. And [Axel Rauschmayer](https://twitter.com/rauschma) for his awesome [comprehensive book](http://exploringjs.com/es6/).
 
 At first when I myself heard about ES6, I had a hard time to digest it and learn about its fundamentals. I have gone through that path, but you don't have to!  
 So I here is a brief introduction to ES6 and its new features, all explained in simple terms for dummies like me :smile:
