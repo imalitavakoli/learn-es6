@@ -684,7 +684,7 @@ export function myFunc(x) {
 Efficient data structures for common algorithms.
 The following four data structures are new in ECMAScript 6: Map, WeakMap, Set and WeakSet.
 
-**Maps**: What was missing in ES5 was a data structure for mapping values to values. The Map data structure in ECMAScript 6 lets you use arbitrary values as keys and is highly welcome.
+**Map**: What was missing in ES5 was a data structure for mapping values to values. The Map data structure in ECMAScript 6 lets you use arbitrary values as keys and is highly welcome.
 
 ```javascript
 // Create an empty Map
@@ -723,7 +723,7 @@ map.entries();
 
 **WeakMap**: It's a Map that doesn’t prevent its keys from being garbage-collected. That means that you can associate data with objects without having to worry about memory leaks. A WeakMap is a data structure whose keys must be objects and whose values can be arbitrary values. It has the same API as Map, with one significant difference: you can’t iterate over the contents – neither the keys, nor the values, nor the entries. You can’t clear a WeakMap, either.
 
-**Sets**: ECMAScript 5 doesn’t have a Set data structure, either. There are two possible work-arounds:
+**Set**: ECMAScript 5 doesn’t have a Set data structure, either. There are two possible work-arounds:
 1. Use the keys of an object to store the elements of a set of strings.
 2. Store (arbitrary) set elements in an Array: Check whether it contains an element via `indexOf()`, remove elements via `filter()`, etc. This is not a very fast solution, but it’s easy to implement. One issue to be aware of is that `indexOf()` can’t find the value NaN.
 
@@ -745,7 +745,7 @@ set.size; // 1
 set.clear(); // To empty the set
 ```
 
-**WeakSet**: It's a Set that doesn’t prevent its elements from being garbage-collected.
+**WeakSet**: It's a Set that doesn't prevent its elements from being garbage-collected.
 
 **NOTE:** Why do Maps and Sets have the property 'size' and not 'length'(like Arrays)? The reason for this difference is that length is for sequences, data structures that are indexable – like Arrays. size is for collections that are primarily unordered – like Maps and Sets.
 
@@ -762,10 +762,10 @@ function getJSON (url) {
     // Ok, now here in the promise, we simply write our asynchronous behavior.
     // e.g. an ajax call.
 
-    // resolve(value); // if our ajax call succeses, we call resolve() and pass
+    // resolve(value); // if our ajax call successes, we call resolve() and pass
     // the necessary argument to it. What is the argument? Well, we ourselves
-    // decide what is should be according to our asynchronous job. e.g. for an
-    // ajax job, the jquery's ajax() method calls our own seccessful function
+    // decide what it should be according to our asynchronous job. e.g. for an
+    // ajax job, the jquery's ajax() method calls our own successful function
     // when it loads our file successfully. It also pass it an argument which
     // is actually the data that it loaded. So data is our argument here.
 
